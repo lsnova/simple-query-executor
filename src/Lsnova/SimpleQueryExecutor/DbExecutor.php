@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsnova\Imonitor\BackendBundle\Service;
+namespace Lsnova\SimpleQueryExecutor;
 
 use Doctrine\ORM\EntityManager;
 use Lsnova\SimpleQueryExecutor\Query\QueryInterface;

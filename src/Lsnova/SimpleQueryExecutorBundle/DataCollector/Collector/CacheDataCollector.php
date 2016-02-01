@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsnova\SimpleQueryExecutorBundle\DataColletor\Collector;
+namespace Lsnova\SimpleQueryExecutorBundle\DataCollector\Collector;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
