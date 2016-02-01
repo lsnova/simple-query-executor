@@ -6,4 +6,4 @@ services:
         class: %lsn.simple_query_executor.collector.cache_hits.class%
         public: false
         tags:
-            - { name: data_collector }
+            - { name: data_collector, template: "LsnovaSimpleQueryExecutorBundle:Profiler:dataCollector", id: "lsn_simple_query_executor_collector" }
