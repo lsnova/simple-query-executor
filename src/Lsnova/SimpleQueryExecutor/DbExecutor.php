@@ -3,7 +3,7 @@
 namespace Lsnova\Imonitor\BackendBundle\Service;
 
 use Doctrine\ORM\EntityManager;
-use Lsnova\Imonitor\BackendBundle\Query\QueryInterface;
+use Lsnova\SimpleQueryExecutor\Query\QueryInterface;
 
 class DbExecutor implements ExecutorInterface
 {
@@ -60,8 +60,8 @@ class DbExecutor implements ExecutorInterface
         foreach ($parameters as $key => $value) {
             if (is_array($value)) {
                 $replacement = implode(", ", array_map(function ($index) use ($key) {
-                            return ":" . $key . "__" . $index;
-                        }, range(0, count($value) - 1)));
+                    return ":" . $key . "__" . $index;
+                }, range(0, count($value) - 1)));
 
                 $plainQuery = $this->replaceOutsideQuotes(":" . $key, $replacement, $plainQuery);
 

@@ -2,7 +2,7 @@
 
 namespace Lsnova\Imonitor\BackendBundle\Service;
 
-use Lsnova\Imonitor\BackendBundle\Query\QueryInterface;
+use Lsnova\SimpleQueryExecutor\Query\QueryInterface;
 
 interface ExecutorInterface
 {
