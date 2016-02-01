@@ -14,8 +14,9 @@ class ExecutorFactory
 
     /**
      * @param EntityManager $em
-     * @param Cache $cache
-     * @param CacheHitsContainer $hitsContainer
+     * @param bool $doCache
+     * @param Cache|null $cache
+     * @param CacheHitsContainer|null $hitsContainer
      * @return DbCacheableExecutor|DbExecutor
      */
     public static function build(
