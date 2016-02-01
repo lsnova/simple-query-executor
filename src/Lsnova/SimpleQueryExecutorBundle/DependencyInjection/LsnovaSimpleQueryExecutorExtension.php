@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsnova\Imonitor\BackendBundle\DependencyInjection;
+namespace Lsnova\SimpleQueryExecutorBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class LsnovaImonitorBackendExtension extends Extension
+class LsnovaSimpleQueryExecutorExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -21,8 +21,5 @@ class LsnovaImonitorBackendExtension extends Extension
     {
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
-
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
     }
 }
