@@ -1,9 +1,14 @@
 parameters:
     lsn.simple_query_executor.collector.cache_hits.class: Lsnova\Lsnova\SimpleQueryExecutorBundle\DataColletor\Collector\CacheDataCollector
+    lsn.simple_query_executor.collector.container.cache.hist.class: Lsnova\Lsnova\SimpleQueryExecutorBundle\DataColletor\CacheHitsContainer
 
 services:
+    lsn.simple_query_executor.collector.container.cache.hist:
+        class: %lsn.simple_query_executor.collector.container.cache.hist.class%
+
     lsn.simple_query_executor.collector.cache_hits:
         class: %lsn.simple_query_executor.collector.cache_hits.class%
+        arguments: [@lsn.simple_query_executor.collector.container.cache.hist]
         public: false
         tags:
             - { name: data_collector, template: "LsnovaSimpleQueryExecutorBundle:Profiler:dataCollector", id: "lsn_simple_query_executor_collector" }
