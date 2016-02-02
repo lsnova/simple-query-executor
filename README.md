@@ -1,4 +1,4 @@
-SimpleQueryExecutor
+SimpleQueryExecutor [![Build Status](https://travis-ci.org/lsnova/simple-query-executor.svg?branch=master)](https://travis-ci.org/lsnova/simple-query-executor)
 ==================
 
 This library can help you to execute complex queries without query builders, entity operations, etc.
