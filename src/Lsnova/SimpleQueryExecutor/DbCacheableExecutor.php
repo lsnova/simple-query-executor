@@ -7,8 +7,9 @@ use Doctrine\DBAL\Cache\ArrayStatement;
 use Doctrine\DBAL\Cache\QueryCacheProfile;
 use Doctrine\DBAL\Cache\ResultCacheStatement;
 use Doctrine\ORM\EntityManager;
-use Lsnova\SimpleQueryExecutorBundle\Collector\CacheHitsContainer;
+use Doctrine\ORM\EntityManagerInterface;
 use Lsnova\SimpleQueryExecutor\Query\QueryInterface;
+use Lsnova\SimpleQueryExecutorBundle\DataCollector\CacheHitsContainer;
 
 class DbCacheableExecutor extends DbExecutor
 {
@@ -33,7 +34,7 @@ class DbCacheableExecutor extends DbExecutor
      * @param Cache $cache
      * @param CacheHitsContainer $hitsContainer
      */
-    public function __construct(EntityManager $em, Cache $cache, CacheHitsContainer $hitsContainer)
+    public function __construct(EntityManagerInterface $em, Cache $cache, CacheHitsContainer $hitsContainer)
     {
         $this->em = $em;
         $this->connection = $em->getConnection();

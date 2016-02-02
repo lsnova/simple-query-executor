@@ -3,13 +3,14 @@
 namespace Lsnova\SimpleQueryExecutor;
 
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Lsnova\SimpleQueryExecutor\Query\QueryInterface;
 
 class DbExecutor implements ExecutorInterface
 {
 
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     protected $em;
 
@@ -18,7 +19,7 @@ class DbExecutor implements ExecutorInterface
      */
     protected $connection;
 
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
         $this->connection = $em->getConnection();

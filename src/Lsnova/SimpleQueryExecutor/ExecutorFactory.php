@@ -3,7 +3,7 @@
 namespace Lsnova\SimpleQueryExecutor;
 
 use Doctrine\Common\Cache\Cache;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Lsnova\SimpleQueryExecutorBundle\DataCollector\CacheHitsContainer;
 
 /**
@@ -20,7 +20,7 @@ class ExecutorFactory
      * @return DbCacheableExecutor|DbExecutor
      */
     public static function build(
-        EntityManager $em,
+        EntityManagerInterface $em,
         $doCache = false,
         Cache $cache = null,
         CacheHitsContainer $hitsContainer = null
