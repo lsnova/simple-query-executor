@@ -34,87 +34,87 @@ Installation
 ------------
 
 1. Composer dependency
-```bash
-$ composer require lsnova/simple-query-executor
-```
+    ```bash
+    $ composer require lsnova/simple-query-executor
+    ```
 
 2. Register bundle
-```php
+    ```php
 
-    public function registerBundles()
-    {
-        $bundles = array(
-            [...]
-            new \Lsnova\SimpleQueryExecutorBundle\LsnovaSimpleQueryExecutorBundle()
-        );
-```
+        public function registerBundles()
+        {
+            $bundles = array(
+                [...]
+                new \Lsnova\SimpleQueryExecutorBundle\LsnovaSimpleQueryExecutorBundle()
+            );
+    ```
 
 3. Get `ExecutorInterface` by define:
-```
-# services.yml
-    foo.bar.db.executor:
-        class: %foo.bar.db.executor.class%
-        factory_service: lsn.simple_query_executor.factory.executor
-        factory_method: build
-        arguments: [@doctrine.orm.default_entity_manager]
-```
+    ```
+    # services.yml
+        foo.bar.db.executor:
+            class: %foo.bar.db.executor.class%
+            factory_service: lsn.simple_query_executor.factory.executor
+            factory_method: build
+            arguments: [@doctrine.orm.default_entity_manager]
+    ```
 
 4. Define your query (templated)
 
-```
-# services.yml
-    foo.bar.query.dummy:
-        class: Lsnova\SimpleQueryExecutorBundle\Query\TemplatingQuery
-        arguments: ['FooBarBundle:query:dummy.sql.twig', @twig]
-```
+    ```
+    # services.yml
+        foo.bar.query.dummy:
+            class: Lsnova\SimpleQueryExecutorBundle\Query\TemplatingQuery
+            arguments: ['FooBarBundle:query:dummy.sql.twig', @twig]
+    ```
 
-and execute
+    and execute
 
-```php
-$query = $this->container->get('foo.bar.query.dummy');
-$executor = $this->container->get('foo.bar.db.executor');
-$executor->fetch($query);
-```
+    ```php
+    $query = $this->container->get('foo.bar.query.dummy');
+    $executor = $this->container->get('foo.bar.db.executor');
+    $executor->fetch($query);
+    ```
 
-OR declare simple Query object:
+    OR declare simple Query object:
 
-```php
-<?php
+    ```php
+    <?php
 
-use Lsnova\SimpleQueryExecutor\Query\AbstractQuery;
+    use Lsnova\SimpleQueryExecutor\Query\AbstractQuery;
 
-class Query extends AbstractQuery
-{
-    /**
-     * @var string
-     */
-    private $sql;
-
-    /**
-     * @param string $sql
-     */
-    public function __construct($sql)
+    class Query extends AbstractQuery
     {
-        $this->sql = $sql;
+        /**
+         * @var string
+         */
+        private $sql;
+
+        /**
+         * @param string $sql
+         */
+        public function __construct($sql)
+        {
+            $this->sql = $sql;
+        }
+
+        /**
+         * @return string
+         */
+        public function getPlainQuery()
+        {
+            return $this->sql;
+        }
     }
+    ```
 
-    /**
-     * @return string
-     */
-    public function getPlainQuery()
-    {
-        return $this->sql;
-    }
-}
-```
+    and execute
 
-and execute
-
-```php
-$query = new Query('SELECT * from users');
-$executor = $this->container->get('foo.bar.db.executor');
-$executor->fetch($query);
-```
+    ```php
+    $query = new Query('SELECT * from users');
+    $executor = $this->container->get('foo.bar.db.executor');
+    $executor->fetch($query);
+    ```
 
 Credits and License
 -------
