@@ -50,7 +50,7 @@ class DbExecutor implements ExecutorInterface
     }
 
     /**
-     * zamiana parametrów array na parametry proste
+     * replace complex parameters to scalar's array
      *
      * @param array $parameters
      * @return array
@@ -76,8 +76,6 @@ class DbExecutor implements ExecutorInterface
     }
 
     /**
-     * Funkcja zamienia tylko te wywolania, ktore nie sa wewnatrz quotes
-     *
      * @param string $replace
      * @param string $with
      * @param string $string

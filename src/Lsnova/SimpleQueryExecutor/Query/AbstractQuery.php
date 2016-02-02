@@ -84,7 +84,7 @@ abstract class AbstractQuery implements QueryInterface
         array_map(
             function ($item) use ($replacements) {
                 if (!$replacements->has($item)) {
-                    throw new \RuntimeException(sprintf("Brak wartości dla klucza %s", $item));
+                    throw new \RuntimeException(sprintf("There is no value for key: %s", $item));
                 }
             },
             $this->requiredReplacements
