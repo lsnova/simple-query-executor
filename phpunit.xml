@@ -23,7 +23,8 @@
         <whitelist>
             <directory>src</directory>
             <exclude>
-                <directory>src/*/**/*Bundle/Resources</directory>
+                <directory>src/*/*Bundle/Resources</directory>
+                <directory>src/*/*Bundle/DependencyInjection</directory>
             </exclude>
         </whitelist>
     </filter>
