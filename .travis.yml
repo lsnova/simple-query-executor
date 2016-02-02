@@ -11,6 +11,6 @@ branches:
 
 before_script:
  - composer selfupdate
- - composer install
+ - composer update
 
 script: vendor/bin/phpunit -c phpunit.xml
