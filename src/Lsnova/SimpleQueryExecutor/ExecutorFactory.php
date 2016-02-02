@@ -1,10 +1,10 @@
 <?php
 
-namespace Lsnova\Imonitor\BackendBundle\Service;
+namespace Lsnova\SimpleQueryExecutor;
 
 use Doctrine\Common\Cache\Cache;
 use Doctrine\ORM\EntityManager;
-use Lsnova\SimpleQueryExecutorBundle\Collector\CacheHitsContainer;
+use Lsnova\SimpleQueryExecutorBundle\DataCollector\CacheHitsContainer;
 
 /**
  * @package Lsnova\Imonitor\BackendBundle\Service
@@ -14,8 +14,9 @@ class ExecutorFactory
 
     /**
      * @param EntityManager $em
-     * @param Cache $cache
-     * @param CacheHitsContainer $hitsContainer
+     * @param bool $doCache
+     * @param Cache|null $cache
+     * @param CacheHitsContainer|null $hitsContainer
      * @return DbCacheableExecutor|DbExecutor
      */
     public static function build(

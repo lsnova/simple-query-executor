@@ -8,7 +8,7 @@
         }
     ],
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-0": { "Lsnova\\SimpleQueryExecutor": "src/" }
     },
     "require": {
         "doctrine/orm": "2.4.*",

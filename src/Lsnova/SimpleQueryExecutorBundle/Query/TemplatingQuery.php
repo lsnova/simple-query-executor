@@ -1,8 +1,9 @@
 <?php
 
-namespace Lsnova\SimpleQueryExecutor\Query;
+namespace Lsnova\SimpleQueryExecutorBundle\Query;
 
 use Symfony\Component\Templating\EngineInterface;
+use Lsnova\SimpleQueryExecutor\Query\AbstractQuery;
 
 /**
  * @package Lsnova\SimpleQueryExecutor\Query
@@ -21,15 +22,16 @@ class TemplatingQuery extends AbstractQuery
     protected $template;
 
     /**
-     * @param string $template
+     * TemplatingQuery constructor.
      * @param EngineInterface $templating
+     * @param string $template
      */
-    public function __construct($template, EngineInterface $templating)
+    public function __construct($template, $templating)
     {
-        parent::__construct();
         $this->template = $template;
         $this->templating = $templating;
     }
+
 
     /**
      * @param string $template

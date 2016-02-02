@@ -1,6 +1,6 @@
 <?php
 
-namespace Lsnova\SimpleQueryExecutorBundle\Collector;
+namespace Lsnova\SimpleQueryExecutorBundle\DataCollector;
 
 use Symfony\Component\HttpFoundation\ParameterBag;
 
