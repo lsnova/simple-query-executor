@@ -53,7 +53,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     public function testExecute()
     {
         $em = new EntityManager();
-        $connection =& $em->getConnection();
+        $connection = $em->getConnection();
 
         $executor = new DbExecutor($em);
         $executor->execute($this->query);
@@ -71,7 +71,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     public function testExecuteCache()
     {
         $em = new EntityManager();
-        $connection =& $em->getConnection();
+        $connection = $em->getConnection();
 
         $executor = new DbCacheableExecutor($em, new Cache(), new CacheHitsContainer());
         $executor->execute($this->query);

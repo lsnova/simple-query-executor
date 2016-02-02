@@ -16,7 +16,7 @@ class ExecutorFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $cacheHitsContainer = new CacheHitsContainer();
         $em = new EntityManager();
-        $connection =& $em->getConnection();
+        $connection = $em->getConnection();
 
         $executor = ExecutorFactory::build($em, false, null, $cacheHitsContainer);
         $this->assertTrue($executor instanceof DbExecutor);
