@@ -5,7 +5,7 @@ namespace Lsnova\SimpleQueryExecutorBundle\DataCollector\Collector;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
-use Lsnova\SimpleQueryExecutorBundle\Collector\CacheHitsContainer;
+use Lsnova\SimpleQueryExecutorBundle\DataCollector\CacheHitsContainer;
 
 /**
  * @see http://symfony.com/doc/current/cookbook/profiler/data_collector.html

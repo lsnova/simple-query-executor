@@ -1,5 +1,5 @@
 parameters:
-    lsn.simple_query_executor.collector.cache_hits.class: Lsnova\SimpleQueryExecutorBundle\DataColletor\Collector\CacheDataCollector
+    lsn.simple_query_executor.collector.cache_hits.class: Lsnova\SimpleQueryExecutorBundle\DataCollector\Collector\CacheDataCollector
     lsn.simple_query_executor.collector.container.cache.hits.class: Lsnova\SimpleQueryExecutorBundle\DataCollector\CacheHitsContainer
     lsn.simple_query_executor.factory.executor.class: Lsnova\SimpleQueryExecutor\ExecutorFactory
 
