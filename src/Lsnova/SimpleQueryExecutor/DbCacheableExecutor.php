@@ -17,17 +17,17 @@ class DbCacheableExecutor extends DbExecutor
     /**
      * @var Cache
      */
-    private $cache;
+    protected $cache;
 
     /**
      * @var QueryCacheProfile
      */
-    private $queryCacheProfile;
+    protected $queryCacheProfile;
 
     /**
      * @var CacheHitsContainer
      */
-    private $hitsContainer;
+    protected $hitsContainer;
 
     /**
      * @param EntityManager $em
@@ -90,7 +90,7 @@ class DbCacheableExecutor extends DbExecutor
      * @param QueryInterface $query
      * @return QueryCacheProfile
      */
-    private function buildCache(QueryInterface $query)
+    protected function buildCache(QueryInterface $query)
     {
         if ($query->getTtl() === 0) {
             return null;
