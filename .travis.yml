@@ -6,8 +6,9 @@ php:
  - 5.5
 
 branches:
-  only:
-    - master
+  except:
+    - develop
+    - /^feature\/.*$/
 
 before_script:
  - composer selfupdate
