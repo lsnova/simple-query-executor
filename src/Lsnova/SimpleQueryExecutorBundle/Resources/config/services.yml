@@ -12,7 +12,7 @@ services:
         arguments: [@lsn.simple_query_executor.collector.container.cache.hits]
         public: false
         tags:
-            - { name: data_collector, template: "LsnovaSimpleQueryExecutorBundle:Profiler:dataCollector", id: "lsn_simple_query_executor_collector" }
+            - { name: data_collector, template: "LsnovaSimpleQueryExecutorBundle:Profiler:dataCollector", id: "lsn_simple_query_executor_cache_collector" }
 
     lsn.simple_query_executor.factory.executor:
         class: %lsn.simple_query_executor.factory.executor.class%
