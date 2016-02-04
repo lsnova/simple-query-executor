@@ -30,14 +30,16 @@ class ExecutorFactory
             return new DbExecutor($em);
         }
         try {
-            $cache->getStats();
+            $stats = $cache->getStats();
+            if (isset($stats[Cache::STATS_UPTIME]) && !$stats[Cache::STATS_UPTIME]) {
+                throw new \Exception('cache down');
+            }
         } catch (\Exception $e) {
             return new DbExecutor($em);
         }
         if ($doCache) {
             return new DbCacheableExecutor($em, $cache, $hitsContainer);
-        } else {
-            return new DbExecutor($em);
         }
+        return new DbExecutor($em);
     }
 }
